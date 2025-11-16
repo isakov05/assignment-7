@@ -21,16 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: assignment-7/transcript-manager
 
       - name: TypeScript compile check
         run: npx tsc --noEmit
-        working-directory: assignment-7/transcript-manager
 
       - name: Run ESLint
         run: npm run lint
-        working-directory: assignment-7/transcript-manager
 
-      - name: Run Jest Tests
+      - name: Run Jest tests
         run: npm test
-        working-directory: assignment-7/transcript-manager
