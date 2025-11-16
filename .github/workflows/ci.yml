@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ "**" ]
 
-defaults:
-  run:
-    working-directory: transcript-manager
-
 jobs:
   build-test-lint:
     runs-on: ubuntu-latest
@@ -25,12 +21,16 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./transcript-manager
 
       - name: TypeScript compile check
         run: npx tsc --noEmit
+        working-directory: ./transcript-manager
 
       - name: Run ESLint
         run: npm run lint
+        working-directory: ./transcript-manager
 
       - name: Run Jest Tests
         run: npm test
+        working-directory: ./transcript-manager
