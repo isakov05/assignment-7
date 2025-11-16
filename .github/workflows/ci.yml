@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "**" ]
 
+defaults:
+  run:
+    working-directory: transcript-manager
+
 jobs:
   build-test-lint:
     runs-on: ubuntu-latest
@@ -26,7 +30,7 @@ jobs:
         run: npx tsc --noEmit
 
       - name: Run ESLint
-        run: npx eslint . --ext .ts
+        run: npm run lint
 
-      - name: Run Tests (Jest)
+      - name: Run Jest Tests
         run: npm test
